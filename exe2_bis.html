@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ex2_bis</title>
+    </head>
+    <body>
+    <script>
+   function hjms(seconds) {
+    let jours = Math.floor(seconds / (24 * 3600));
+    seconds %= 24 * 3600;
+    let heures = Math.floor(seconds / 3600);
+    seconds %= 3600;
+    let minutes = Math.floor(seconds / 60);
+    let secondes = seconds % 60;
+
+    let result = [];
+
+    if (jours > 0) result.push(`${jours} ${jours === 1 ? "jour" : "jours"}`);
+    if (heures > 0) result.push(`${heures} ${heures === 1 ? "heure" : "heures"}`);
+    if (minutes > 0) result.push(`${minutes} ${minutes === 1 ? "minute" : "minutes"}`);
+    if (secondes > 0) result.push(`${secondes} ${secondes === 1 ? "seconde" : "secondes"}`);
+
+    document.write(`Une durée en secondes : ${seconds}`);
+    document.write(`Cette durée équivaut à ${result.join(" ")}`);
+}
+
+// Exemple d'utilisation
+let duree = parseInt(prompt("Entrez une durée en secondes :"));
+hjms(duree);
+
+    </script>
+    </body>
+</html>

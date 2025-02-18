@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci - Fibo2</title>
+    <script>
+        function trouverPremierFibo(superieurA) {
+            let a = 0, b = 1, rang = 1;
+
+            while (b <= superieurA) {
+                let temp = a + b;
+                a = b;
+                b = temp;
+                rang++;
+            }
+
+            return { rang, valeur: b };
+        }
+
+        function calculerFibo2() {
+            let seuil = parseInt(prompt("Entrez une valeur seuil :"));
+            if (isNaN(seuil) || seuil < 0) {
+                alert("Veuillez entrer un entier positif !");
+                return;
+            }
+
+            let resultat = trouverPremierFibo(seuil);
+            document.getElementById("resultat2").innerHTML = 
+                `Le premier terme de Fibonacci supérieur à <strong>${seuil}</strong> est <strong>F(${resultat.rang}) = ${resultat.valeur}</strong>`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Premier terme de Fibonacci supérieur à une valeur</h1>
+    <button onclick="calculerFibo2()">Trouver F(n) > seuil</button>
+    <p id="resultat2"></p>
+</body>
+</html>

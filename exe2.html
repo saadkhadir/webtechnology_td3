@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ex2</title>
+    </head>
+    <body>
+    <script>
+   function hjms(seconds) {
+    let jours = Math.floor(seconds / (24 * 3600));
+    seconds %= 24 * 3600;
+    let heures = Math.floor(seconds / 3600);
+    seconds %= 3600;
+    let minutes = Math.floor(seconds / 60);
+    let secondes = seconds % 60;
+
+    document.write(`Une durée en secondes : ${seconds}`);
+    document.write(`Cette durée équivaut à ${jours} jours ${heures} heures ${minutes} minutes ${secondes} secondes`);
+}
+
+// Exemple d'utilisation
+let duree = parseInt(prompt("Entrez une durée en secondes :"));
+hjms(duree);
+
+    </script>
+    </body>
+</html>

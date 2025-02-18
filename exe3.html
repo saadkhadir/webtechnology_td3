@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ex3</title>
+    </head>
+    <body>
+    <script>
+   function troisNombres(a, b, c) {
+    // Trouver le plus petit nombre
+    if (a <= b && a <= c) {
+        premier = a;
+        if (b <= c) {
+            deuxieme = b;
+            troisieme = c;
+        } else {
+            deuxieme = c;
+            troisieme = b;
+        }
+    } else if (b <= a && b <= c) {
+        premier = b;
+        if (a <= c) {
+            deuxieme = a;
+            troisieme = c;
+        } else {
+            deuxieme = c;
+            troisieme = a;
+        }
+    } else {
+        premier = c;
+        if (a <= b) {
+            deuxieme = a;
+            troisieme = b;
+        } else {
+            deuxieme = b;
+            troisieme = a;
+        }
+    }
+
+    // Retourner les nombres dans l'ordre croissant
+    return [premier, deuxieme, troisieme];
+}
+
+// Exemple d'utilisation
+let resultat = troisNombres(10, 5, 8);
+document.write(resultat); // Affiche [5, 8, 10]
+
+    </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motif Escalier</title>
+    <script>
+      function triangle1(taille) {
+        let i = 1;
+        // Utilisation de while pour afficher le motif
+        while (i <= taille) {
+          let ligne = "*".repeat(i); // Créer la ligne d'étoiles
+          document.getElementById("resultat1").innerHTML += ligne + "<br>";
+          i++; // Incrémenter pour afficher plus d'étoiles sur la prochaine ligne
+        }
+      }
+
+      function afficherTriangle() {
+        let taille = parseInt(prompt("Entrez la taille du triangle:"));
+        document.getElementById("resultat1").innerHTML = ""; // Réinitialiser l'affichage
+        triangle1(taille); // Appeler la fonction pour afficher le triangle
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Affichage du motif escaliers avec while</h1>
+    <button onclick="afficherTriangle()">Affichage</button>
+    <div id="resultat1"></div>
+  </body>
+</html>

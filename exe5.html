@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Nombre Premier</title>
+    <script>
+        function estPremier(n) {
+            if (n < 2) return false; // 0 et 1 ne sont pas premiers
+            if (n === 2) return true; // 2 est le seul nombre premier pair
+            if (n % 2 === 0) return 2; // Nombre pair > 2 n'est pas premier
+
+            for (let i = 3; i <= Math.sqrt(n); i += 2) { 
+                if (n % i === 0) return i; // Retourne un diviseur
+            }
+            return true; // Si aucun diviseur trouvé, c'est un nombre premier
+        }
+
+        function verifierNombre() {
+            let nombre = parseInt(prompt("Donnez un entier positif :"));
+            if (isNaN(nombre) || nombre < 1) {
+                alert("Veuillez entrer un entier positif valide !");
+                return;
+            }
+
+            let resultat = estPremier(nombre);
+            if (resultat === true) {
+                document.getElementById("resultat").innerHTML = `<strong>${nombre}</strong> est un nombre premier.`;
+            } else {
+                document.getElementById("resultat").innerHTML = `<strong>${nombre}</strong> n'est pas un nombre premier, il est divisible par <strong>${resultat}</strong>.`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Test d'un Nombre Premier</h1>
+    <button onclick="verifierNombre()">Tester un nombre</button>
+    <p id="resultat"></p>
+</body>
+</html>

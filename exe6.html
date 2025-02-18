@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci - Fibo1</title>
+    <script>
+        function fibonacci(n) {
+            if (n < 0) return null; // Cas invalide
+            if (n === 0) return 0;
+            if (n === 1) return 1;
+
+            let a = 0, b = 1, temp;
+            for (let i = 2; i <= n; i++) {
+                temp = a + b;
+                a = b;
+                b = temp;
+            }
+            return b;
+        }
+
+        function calculerFibo1() {
+            let n = parseInt(prompt("Entrez la valeur de n :"));
+            if (isNaN(n) || n < 0) {
+                alert("Veuillez entrer un entier positif !");
+                return;
+            }
+
+            let resultat = fibonacci(n);
+            document.getElementById("resultat1").innerHTML = `Le terme <strong>F(${n})</strong> de la suite de Fibonacci est : <strong>${resultat}</strong>`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Calcul du n-ième terme de Fibonacci</h1>
+    <button onclick="calculerFibo1()">Calculer F(n)</button>
+    <p id="resultat1"></p>
+</body>
+</html>
